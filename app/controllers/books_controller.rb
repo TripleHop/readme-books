@@ -1,6 +1,9 @@
 class BooksController < ApplicationController
   before_action :set_book, only: [:show, :edit, :update, :destroy]
   before_action :authenticate_user!
+  load_and_authorize_resource
+  
+
   # GET /books
   # GET /books.json
   def index
@@ -58,6 +61,13 @@ class BooksController < ApplicationController
       format.json { head :no_content }
     end
   end
+  # def set_user_book
+  #   id = params[:id]
+  #   @book = current_user.books.find_by_id(id)
+
+  #   if @book == nil
+  #    redirect_to books_path
+  # end
 
   private
     # Use callbacks to share common setup or constraints between actions.
