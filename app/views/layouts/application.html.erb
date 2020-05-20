@@ -13,7 +13,7 @@
   <% else %>
     <%= link_to "login", new_user_session_path %>
   <% end %>
-
+<main class='<%= controller.controller_name %>'>
   <body>
     <%= yield %>
   </body>
