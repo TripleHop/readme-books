@@ -24,7 +24,9 @@
   <strong>Condition:</strong>
   <%= @book.condition %>
 </p>
-
+<p>
+<%= image_tag @book.picture if @book.picture.attached?%>
+</p>
 <div class="show-edit-delete">
    <% if can? :edit, @book %>
      <%= link_to "Edit", edit_book_path(@book.id) %>

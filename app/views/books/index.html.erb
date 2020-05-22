@@ -17,8 +17,6 @@
 <tr class="<%= cycle('list_line_odd', 'list_line_even') %>">
 
 
- <%= image_tag @book.image if @book.image.attached? %>
-
 <td class="blurb">
 <h1><%= book.book_title %></h1>
 <p>
@@ -33,17 +31,23 @@ length: 80) %>
 <%= truncate(strip_tags(book.condition),
 length: 80) %>
 </p>
+<td>
+<%= image_tag book.picture if book.picture.attached?%>
+</td>
 
 </td>
 <td class="actions">
 <ul>
 <li><%= link_to 'Show', book %></li>
+<div class="auth">
+<% if user_signed_in? && (current_user == topic.user || current_user.admin )%>
 <li><%= link_to 'Edit', edit_book_path(book) %></li>
 <li>
 <%= link_to 'Destroy',
 book,
 method: :delete,
 data: { confirm: 'Are you sure?' } %>
+</div>
 <div class="price">
  <%= number_to_currency(book.price) %>
 <%= button_to 'Add to Cart', line_items_path(book_id: book) %>

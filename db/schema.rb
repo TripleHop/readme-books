@@ -42,6 +42,7 @@ ActiveRecord::Schema.define(version: 2020_05_22_035151) do
     t.text "blurb"
     t.integer "price"
     t.string "condition"
+    t.string "image"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.bigint "user_id", null: false
