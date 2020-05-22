@@ -1,0 +1,15 @@
+<% if notice %>
+<aside id="notice"><%= notice %></aside>
+<% end %>
+<h2>Your  Cart</h2>
+<ul>
+<% @cart.line_items.each do |line_item| %>
+<li><%= line_item.quantity %> &times; <%= line_item.book.book_title %>  <%="by #{line_item.book.author}" %> </li>
+<td class="price"><%=number_to_currency(line_item.total_price) %></td>
+<% end %>
+</ul>
+
+<%= button_to "empty cart", @cart, method: :delete,
+data: [confirm: ' Are you sure']%>
+<%= link_to 'home', books_path %>
+

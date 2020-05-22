@@ -34,6 +34,9 @@
   <div class="field">
     <%= form.label :condition %>
     <%= form.text_field :condition %>
+  <div class="field">
+  <%= form.label :image %>
+  <%= form.file_field :image, accept: 'image/png, image/gif, image/jpeg, image;jpg'%>
   </div>
 
   <div class="actions">

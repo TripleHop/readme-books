@@ -1,50 +1,67 @@
-// Place all the styles related to the Books controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: https://sass-lang.com/
-// .books {
-//   margin:0;
-//   padding:0.5em;
 
-// a {
-//   padding: 0.35em 0.5em;
-//   border-radius: 0.35em;
-// }
-// table{
-//   border-collapse: collapse;
-// }
-// td {
-//   padding: 0.5em;
-//   margin:0;
-// }
-// tr.list_line_odd {
-//   background-color: red;
-// }
-// td.image {
-//   display:none;
-//   @media (min-width: 30em) {
-//     display:block;
-//     img {
-//       height:11.3em
-//     }
-//   }
-// }
-// td.description{
-//   h1 {
-//     font-size: 1.4em;
-//   }
-// }
-// td.actions {
-//   ul {
-//     padding: 0;
-//     list-style:none;
-//     li {
-//       padding:0.5em 0.5em;
-//     }
-//   }
-// }
-// tfoot {
-//   td{
-//     padding: 0.5em 0;
-//   } 
-// }
-// }
+.books {
+  margin:0;
+  padding:0.5em;
+
+a {
+  padding: 0.35em 0.5em;
+  border-radius: 0.35em;
+}
+table{
+  border-collapse: collapse;
+}
+td {
+  padding: 0.5em;
+  margin:0;
+}
+tr.list_line_odd {
+  background-color: red;
+}
+td.image {
+  display:none;
+  @media (min-width: 30em) {
+    display:block;
+    img {
+      height:11.3em
+    }
+  }
+}
+td.blurb{
+  h1 {
+    font-size: 1.4em;
+  }
+}
+td.actions {
+  ul {
+    padding: 0;
+    list-style:none;
+    li {
+      padding:0.5em 0.5em;
+    }
+  }
+}
+tfoot {
+  td{
+    padding: 0.5em 0;
+  } 
+}
+}
+.price {
+  font-size:1.4;
+}
+form,div{
+  display: inline;
+
+}
+input[type="submit"]{
+  background-color: #282;
+border-radius: 0.354em;
+border: solid thin #141;
+color: white;
+font-size: 1em;
+padding: 0.354em 1em;
+}
+input[type="submit"]:hover {
+background-color: #141;
+
+}
