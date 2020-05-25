@@ -7,7 +7,9 @@ class BooksController < ApplicationController
   # GET /books
   # GET /books.json
   def index
-    @books = Book.all
+    # @books = Book.all
+    @q =Book.ransack(params[:q])
+
   end
 
   # GET /books/1
@@ -72,4 +74,5 @@ class BooksController < ApplicationController
     def book_params
       params.require(:book).permit(:book_title, :author, :blurb, :price, :condition, :picture)
     end
+    
 end

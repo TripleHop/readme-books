@@ -3,9 +3,11 @@
 <aside id="notice"><%= notice %></aside>
 <% end %>
 <h1>Books</h1>
+<tr> 
+
 <table>
 <tfoot>
-
+ <p>Sort By: <%= sort_link(@q, :price, default_order: :asc) %></p>
 <tr>
 <td colspan="3">
 <%= link_to 'New Book', new_book_path %>
@@ -31,7 +33,7 @@ length: 80) %>
 <%= truncate(strip_tags(book.condition),
 length: 80) %>
 </p>
-<td>
+<td class="image">
 <%= image_tag book.picture if book.picture.attached?%>
 </td>
 
@@ -39,8 +41,9 @@ length: 80) %>
 <td class="actions">
 <ul>
 <li><%= link_to 'Show', book %></li>
-<div class="auth">
-<% if user_signed_in? && (current_user == topic.user || current_user.admin )%>
+<div classs="auth">
+<% if user_signed_in? && (current_user == book.user)%>
+               
 <li><%= link_to 'Edit', edit_book_path(book) %></li>
 <li>
 <%= link_to 'Destroy',
@@ -48,6 +51,7 @@ book,
 method: :delete,
 data: { confirm: 'Are you sure?' } %>
 </div>
+<%end%>
 <div class="price">
  <%= number_to_currency(book.price) %>
 <%= button_to 'Add to Cart', line_items_path(book_id: book) %>
