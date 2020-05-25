@@ -8,18 +8,25 @@
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
-  <% if user_signed_in? %>
+  
+<main class='<%= controller.controller_name %>'>
+  <body>
+  <ul class="nav justify-content-center">
+  <li class="nav-item">
+    <a class="nav-link" ><% if user_signed_in? %>
     <%= link_to "logout", destroy_user_session_path, method: :delete %>
   <% else %>
     <%= link_to "login", new_user_session_path %>
-  <% end %>
-<main class='<%= controller.controller_name %>'>
-<nav class="nav">
-<li><a href="/"> Sell </a></li>
-<li><a href="/"> Sell </a></li>
-<li><a href="/"> Sell </a></li>
-
-  <body>
+  <% end %></a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link"> <%= link_to 'Sell book', new_book_path %></a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" href="/">View books</a>
+  </li>
+  
+</ul>
     <%= yield %>
   </body>
 </html>

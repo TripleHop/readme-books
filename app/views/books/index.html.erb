@@ -2,11 +2,12 @@
 <% if notice %>
 <aside id="notice"><%= notice %></aside>
 <% end %>
+
 <h1>Books</h1>
 <tr> 
 
 <table>
-<tfoot>
+
  <p>Sort By: <%= sort_link(@q, :price, default_order: :asc) %></p>
  <p>Sort By: <%= sort_link(@q, :book_title, default_order: :asc) %></p>
 <tr>
@@ -14,51 +15,37 @@
 <%= link_to 'New Book', new_book_path %>
 </td>
 </tr>
-</tfoot>
+
 <tbody>
+<div class="card" style="width: 18rem;">
 <% @books.each do |book| %>
 <tr class="<%= cycle('list_line_odd', 'list_line_even') %>">
 
-
-<td class="blurb">
-<h1><%= book.book_title %></h1>
-<p>
-<%= truncate(strip_tags(book.author),
-length: 80) %>
-</p>
-<p>
-<%= truncate(strip_tags(book.blurb),
-length: 80) %>
-</p>
-<p>
-<%= truncate(strip_tags(book.condition),
-length: 80) %>
-</p>
-<td class="image">
-<%= image_tag book.picture if book.picture.attached?%>
-</td>
-
-</td>
-<td class="actions">
-<ul>
-<li><%= link_to 'Show', book %></li>
-<div classs="auth">
-<% if user_signed_in? && (current_user == book.user)%>
-               
-<li><%= link_to 'Edit', edit_book_path(book) %></li>
-<li>
-<%= link_to 'Destroy',
-book,
+<div class="card" style="width: 18rem;">
+  <div class="photo"><%= image_tag book.picture if book.picture.attached?%></div>
+  <div class="card-body">
+    <h5 class="card-title"><%= book.book_title %></h5>
+    <p class="card-text"><%= truncate(strip_tags(book.author),
+length: 80) %></p>
+    <p class="card-text"><%= truncate(strip_tags(book.blurb),
+length: 80) %></p>
+    <p class="card-text"><%= truncate(strip_tags(book.condition),
+length: 80) %></p>
+    <p class="card-text"><%= number_to_currency(book.price) %></p>
+    <%= button_to 'Add to Cart', line_items_path(book_id: book) %>
+    <a class="card-link"><%= link_to 'Show', book %></a>
+    <% if user_signed_in? && (current_user == book.user)%>
+    <a class="card-link"><%= link_to 'Edit', edit_book_path(book) %> </a>
+    <a class="card-link"><%= link_to 'Destroy', book,
 method: :delete,
-data: { confirm: 'Are you sure?' } %>
-</div>
+data: { confirm: 'Are you sure?' }%></a>
 <%end%>
-<div class="price">
- <%= number_to_currency(book.price) %>
-<%= button_to 'Add to Cart', line_items_path(book_id: book) %>
-</li>
-</ul>
-</td>
+  </div>
+  </div>
+
+
+
+
 </tr>
 <% end %>
 </tbody>

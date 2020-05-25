@@ -2,7 +2,10 @@
 .books {
   margin:0;
   padding:0.5em;
-
+h1{
+  justify-content: center;
+  flex-wrap: wrap;
+}
 a {
   padding: 0.35em 0.5em;
   border-radius: 0.35em;
@@ -26,6 +29,9 @@ td.image {
       width:15em;
     }
   }
+}
+.blurb{
+  justify-self: center;
 }
 td.blurb{
   h1 {
@@ -65,4 +71,14 @@ padding: 0.354em 1em;
 input[type="submit"]:hover {
 background-color: #141;
 
+}
+
+.photo{
+  width:30%;
+  height:30% ;
+}
+.card{
+  justify-content: center !important;
+  display: flex;
+  flex-wrap: wrap;
 }
