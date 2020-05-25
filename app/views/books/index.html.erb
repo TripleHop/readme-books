@@ -8,6 +8,7 @@
 <table>
 <tfoot>
  <p>Sort By: <%= sort_link(@q, :price, default_order: :asc) %></p>
+ <p>Sort By: <%= sort_link(@q, :book_title, default_order: :asc) %></p>
 <tr>
 <td colspan="3">
 <%= link_to 'New Book', new_book_path %>

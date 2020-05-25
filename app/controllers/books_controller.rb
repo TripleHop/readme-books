@@ -9,7 +9,8 @@ class BooksController < ApplicationController
   def index
     # @books = Book.all
     @q =Book.ransack(params[:q])
-
+    @books = @q.result.with_attached_picture
+    
   end
 
   # GET /books/1
