@@ -73,7 +73,9 @@ User authentication: User authetications was provided by using the devise gem, w
 
 Database: Using postgresql allows for an easy way to store our data and control the migrations used in rails rather then handling the data by hand
 
-User authorization
+User authorization: Cancancan was used for authorization similar to authetication while it is possible to do by hand its much easier to impliment a highly used gem so control the flow of what users have access to.
+
+Ransack, Ransack was used to allow for quick and easy use of a sort function which arent difficult to create ransack is extremely quick easy and simple to implement into code
 images: AWS S3 buckets are used to store images in a reliable place and to avoid unneccassry data on the own site, and provides great use of the active storage
 
 
